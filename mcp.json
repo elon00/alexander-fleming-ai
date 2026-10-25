@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "alexander-fleming-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "FLEMING",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "simulate_zone_of_inhibition",
+          "description": "Models bacterial lysis zone radii and minimum inhibitory concentrations (MIC) across staphylococcal strains",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "penicillin_concentration_ug": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "penicillin_concentration_ug"
+            ]
+          }
+        },
+        {
+          "name": "analyze_beta_lactamase_resistance_kinetics",
+          "description": "Calculates enzyme hydrolysis rates of penicillin rings and predicts resistance mutation vectors",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "substrate_uM": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "substrate_uM"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
